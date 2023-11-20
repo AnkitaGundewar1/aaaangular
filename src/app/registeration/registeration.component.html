@@ -1,0 +1,143 @@
+<!-- 
+
+<div class="registration-container">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <h2>Register</h2>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username" />
+      <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+        <div *ngIf="username?.errors?.['required']" style="color: red">
+          Username is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" />
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <div *ngIf="email?.errors?.['required']" style="color: red">
+          Email is required.
+        </div>
+        <div *ngIf="email?.errors?.['email']" style="color: red">
+          Invalid email format.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" />
+      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+        <div *ngIf="password?.errors?.['required']" style="color: red">
+          Password is required.
+        </div>
+        <div *ngIf="password?.errors?.['minlength']" style="color: red">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="registrationForm.invalid">
+      Register
+    </button>
+  </form>
+</div> -->
+
+<!-- registration.component.html -->
+
+<div class="registration-container">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <h2>Register</h2>
+    <div class="form-group">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" formControlName="firstName" />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" formControlName="lastName" />
+      </div>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username" />
+      <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+        <div *ngIf="username?.errors?.['required']" style="color: red">
+          Username is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" />
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <div *ngIf="email?.errors?.['required']" style="color: red">
+          Email is required.
+        </div>
+        <div *ngIf="email?.errors?.['email']" style="color: red">
+          Invalid email format.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mobile">Mobile Number:</label>
+      <input type="tel" id="mobile" formControlName="mobile" />
+      <div *ngIf="mobile?.invalid && (mobile?.dirty || mobile?.touched)">
+        <div *ngIf="mobile?.errors?.['required']" style="color: red">
+          Mobile number is required.
+        </div>
+        <div *ngIf="mobile?.errors?.['pattern']" style="color: red">
+          Invalid mobile number format.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select id="gender" formControlName="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" />
+      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+        <div *ngIf="password?.errors?.['required']" style="color: red">
+          Password is required.
+        </div>
+        <div *ngIf="password?.errors?.['minlength']" style="color: red">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="repeatPassword">Repeat Password:</label>
+      <input
+        type="password"
+        id="repeatPassword"
+        formControlName="repeatPassword"
+      />
+      <div
+        *ngIf="
+          repeatPassword?.invalid &&
+          (repeatPassword?.dirty || repeatPassword?.touched)
+        "
+      >
+        <div *ngIf="repeatPassword?.errors?.['required']" style="color: red">
+          Repeat Password is required.
+        </div>
+        <div *ngIf="repeatPassword?.errors?.['mustMatch']" style="color: red">
+          Passwords must match.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registrationForm.invalid">
+      Register
+    </button>
+  </form>
+</div>

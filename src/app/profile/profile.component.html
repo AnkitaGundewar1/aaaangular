@@ -1,0 +1,68 @@
+<!-- profile.component.html -->
+<div class="profile-container">
+  <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+    <h2>Edit Your Profile</h2>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username" required />
+      <div *ngIf="usernameInvalid">
+        <div
+          *ngIf="profileForm.get('username')?.hasError('required')"
+          class="error-message"
+          style="color: red"
+        >
+          Username is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" required />
+      <div *ngIf="emailInvalid">
+        <div
+          *ngIf="profileForm.get('email')?.hasError('required')"
+          class="error-message"
+          style="color: red"
+        >
+          Email is required.
+        </div>
+        <div
+          *ngIf="profileForm.get('email')?.hasError('email')"
+          class="error-message"
+          style="color: red"
+        >
+          Invalid email format.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mobile">Mobile Number:</label>
+      <input type="tel" id="mobile" formControlName="mobile" />
+      <div *ngIf="mobileInvalid">
+        <div
+          *ngIf="profileForm.get('mobile')?.hasError('pattern')"
+          class="error-message"
+          style="color: red"
+        >
+          Invalid mobile number format.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">New Password:</label>
+      <input type="password" id="password" formControlName="password" />
+      <small
+        id="passwordMessage"
+        class="error-message"
+        style="color: red"
+        *ngIf="passwordInvalid"
+        >Password should be at least 8 characters long.</small
+      >
+    </div>
+    <button type="submit" [disabled]="profileForm.invalid">
+      Update Profile
+    </button>
+  </form>
+</div>
